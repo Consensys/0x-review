@@ -57,6 +57,8 @@ Our review found a lack of specifications and documentation, without which we ar
 The primary documentation we received was the white paper which did not cover many of the interactions and components of the system. For example, the [critical issue of rounding](../report/4_specific_findings.md#41-critical) lacks a specification and originally had [no tests](https://github.com/0xProject/contracts/issues/92).
 
 Another example is the [Token Distribution contract](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/TokenDistributionWithRegistry.sol). We have written up some descriptions in the Overview and Appendix to provide readers with more context.
+
+There was no documentation about the deployment or rollout process.  The first rule for a [responsible token sale](https://medium.com/@matthewdif/towards-responsible-token-sales-icos-291e69cc9ccf) is **"Under no circumstance should the money raised be released all at once to the development team"**; there is no documentation how this will be achieved.
 <br/><br/><br/>
 
 ### Rounding errors
