@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/base/MultiSigWallet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/base/</a> MultiSigWallet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.66% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/94</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.31% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.56% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>33/108</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity 0.4.11;
+&nbsp;
+/// @title Multisignature wallet - Allows multiple parties to agree on transactions before execution.
+/// @author Stefan George - &lt;stefan.george@consensys.net&gt;
+contract MultiSigWallet {
+&nbsp;
+    uint constant public MAX_OWNER_COUNT = 50;
+&nbsp;
+    event Confirmation(address indexed sender, uint indexed transactionId);
+    event Revocation(address indexed sender, uint indexed transactionId);
+    event Submission(uint indexed transactionId);
+    event Execution(uint indexed transactionId);
+    event ExecutionFailure(uint indexed transactionId);
+    event Deposit(address indexed sender, uint value);
+    event OwnerAddition(address indexed owner);
+    event OwnerRemoval(address indexed owner);
+    event RequirementChange(uint required);
+&nbsp;
+    mapping (uint =&gt; Transaction) public transactions;
+    mapping (uint =&gt; mapping (address =&gt; bool)) public confirmations;
+    mapping (address =&gt; bool) public isOwner;
+    address[] public owners;
+    uint public required;
+    uint public transactionCount;
+&nbsp;
+    struct Transaction {
+        address destination;
+        uint value;
+        bytes data;
+        bool executed;
+    }
+&nbsp;
+    modifier onlyWallet() {
+        if (msg.sender != address(this))
+            throw;
+        _;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    modifier ownerDoesNotExist(address owner)</span> {
+<span class="cstat-no" title="statement not covered" >        if (isOwner[owner])</span>
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    modifier ownerExists(address owner) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!isOwner[owner])
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    modifier transactionExists(uint transactionId) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (transactions[transactionId].destination == 0)
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    modifier confirmed(uint transactionId, address owner)</span> {
+<span class="cstat-no" title="statement not covered" >        if (!confirmations[transactionId][owner])</span>
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    modifier notConfirmed(uint transactionId, address owner) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (confirmations[transactionId][owner])
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    modifier notExecuted(uint transactionId) {
+        if (transactions[transactionId].executed)
+            throw;
+        _;
+    }
+&nbsp;
+    modifier notNull(address _address) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (_address == 0)
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    modifier validRequirement(uint ownerCount, uint _required) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (   ownerCount &gt; MAX_OWNER_COUNT
+            || _required &gt; ownerCount
+            || _required == 0
+            || ownerCount == 0)
+<span class="cstat-no" title="statement not covered" >            throw;</span>
+        _;
+    }
+&nbsp;
+    /// @dev Fallback function allows to deposit ether.
+<span class="fstat-no" title="function not covered" >    function()</span>
+        payable
+    {
+<span class="cstat-no" title="statement not covered" >        if (msg.value &gt; 0)</span>
+<span class="cstat-no" title="statement not covered" >            Deposit(msg.sender, msg.value)</span>;
+    }
+&nbsp;
+    /*
+     * Public functions
+     */
+    /// @dev Contract constructor sets initial owners and required number of confirmations.
+    /// @param _owners List of initial owners.
+    /// @param _required Number of required confirmations.
+    function MultiSigWallet(address[] _owners, uint _required)
+        public
+        validRequirement(_owners.length, _required)
+    {
+        for (uint i=0; i&lt;_owners.length; i++) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (isOwner[_owners[i]] || _owners[i] == 0)
+<span class="cstat-no" title="statement not covered" >                throw;</span>
+            isOwner[_owners[i]] = true;
+        }
+        owners = _owners;
+        required = _required;
+    }
+&nbsp;
+    /// @dev Allows to add a new owner. Transaction has to be sent by wallet.
+    /// @param owner Address of new owner.
+<span class="fstat-no" title="function not covered" >    function addOwner(address owner)</span>
+        public
+        onlyWallet
+        ownerDoesNotExist(owner)
+        notNull(owner)
+        validRequirement(owners.length + 1, required)
+    {
+<span class="cstat-no" title="statement not covered" >        isOwner[owner] = true</span>;
+        owners.push(owner);
+<span class="cstat-no" title="statement not covered" >        OwnerAddition(owner)</span>;
+    }
+&nbsp;
+    /// @dev Allows to remove an owner. Transaction has to be sent by wallet.
+    /// @param owner Address of owner.
+<span class="fstat-no" title="function not covered" >    function removeOwner(address owner)</span>
+        public
+        onlyWallet
+        ownerExists(owner)
+    {
+<span class="cstat-no" title="statement not covered" >        isOwner[owner] = false</span>;
+<span class="cstat-no" title="statement not covered" >        for (uint i=0; i&lt;owners.length - 1; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (owners[i] == owner) {</span>
+<span class="cstat-no" title="statement not covered" >                owners[i] = owners[owners.length - 1]</span>;
+                break;
+            }
+<span class="cstat-no" title="statement not covered" >        owners.length -= 1</span>;
+<span class="cstat-no" title="statement not covered" >        if (required &gt; owners.length)</span>
+<span class="cstat-no" title="statement not covered" >            changeRequirement(owners.length)</span>;
+<span class="cstat-no" title="statement not covered" >        OwnerRemoval(owner)</span>;
+    }
+&nbsp;
+    /// @dev Allows to replace an owner with a new owner. Transaction has to be sent by wallet.
+    /// @param owner Address of owner to be replaced.
+    /// @param owner Address of new owner.
+<span class="fstat-no" title="function not covered" >    function replaceOwner(address owner, address newOwner)</span>
+        public
+        onlyWallet
+        ownerExists(owner)
+        ownerDoesNotExist(newOwner)
+    {
+<span class="cstat-no" title="statement not covered" >        for (uint i=0; i&lt;owners.length; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (owners[i] == owner) {</span>
+<span class="cstat-no" title="statement not covered" >                owners[i] = newOwner</span>;
+                break;
+            }
+<span class="cstat-no" title="statement not covered" >        isOwner[owner] = false</span>;
+<span class="cstat-no" title="statement not covered" >        isOwner[newOwner] = true</span>;
+<span class="cstat-no" title="statement not covered" >        OwnerRemoval(owner)</span>;
+<span class="cstat-no" title="statement not covered" >        OwnerAddition(newOwner)</span>;
+    }
+&nbsp;
+    /// @dev Allows to change the number of required confirmations. Transaction has to be sent by wallet.
+    /// @param _required Number of required confirmations.
+<span class="fstat-no" title="function not covered" >    function changeRequirement(uint _required)</span>
+        public
+        onlyWallet
+        validRequirement(owners.length, _required)
+    {
+<span class="cstat-no" title="statement not covered" >        required = _required</span>;
+<span class="cstat-no" title="statement not covered" >        RequirementChange(_required)</span>;
+    }
+&nbsp;
+    /// @dev Allows an owner to submit and confirm a transaction.
+    /// @param destination Transaction target address.
+    /// @param value Transaction ether value.
+    /// @param data Transaction data payload.
+    /// @return Returns transaction ID.
+    function submitTransaction(address destination, uint value, bytes data)
+        public
+        returns (uint transactionId)
+    {
+        transactionId = addTransaction(destination, value, data);
+        confirmTransaction(transactionId);
+    }
+&nbsp;
+    /// @dev Allows an owner to confirm a transaction.
+    /// @param transactionId Transaction ID.
+<span class="fstat-no" title="function not covered" >    function confirmTransaction(uint transactionId)</span>
+        public
+        ownerExists(msg.sender)
+        transactionExists(transactionId)
+        notConfirmed(transactionId, msg.sender)
+    {
+<span class="cstat-no" title="statement not covered" >        confirmations[transactionId][msg.sender] = true</span>;
+<span class="cstat-no" title="statement not covered" >        Confirmation(msg.sender, transactionId)</span>;
+<span class="cstat-no" title="statement not covered" >        executeTransaction(transactionId)</span>;
+    }
+&nbsp;
+    /// @dev Allows an owner to revoke a confirmation for a transaction.
+    /// @param transactionId Transaction ID.
+<span class="fstat-no" title="function not covered" >    function revokeConfirmation(uint transactionId)</span>
+        public
+        ownerExists(msg.sender)
+        confirmed(transactionId, msg.sender)
+        notExecuted(transactionId)
+    {
+<span class="cstat-no" title="statement not covered" >        confirmations[transactionId][msg.sender] = false</span>;
+<span class="cstat-no" title="statement not covered" >        Revocation(msg.sender, transactionId)</span>;
+    }
+&nbsp;
+    /// @dev Allows anyone to execute a confirmed transaction.
+    /// @param transactionId Transaction ID.
+<span class="fstat-no" title="function not covered" >    function executeTransaction(uint transactionId)</span>
+        public
+        notExecuted(transactionId)
+    {
+<span class="cstat-no" title="statement not covered" >        if (isConfirmed(transactionId)) {</span>
+<span class="cstat-no" title="statement not covered" >            Transaction tx = transactions[transactionId]</span>;
+<span class="cstat-no" title="statement not covered" >            tx.executed = true</span>;
+<span class="cstat-no" title="statement not covered" >            if (tx.destination.call.value(tx.value)(tx.data))</span>
+<span class="cstat-no" title="statement not covered" >                Execution(transactionId)</span>;
+            else {
+<span class="cstat-no" title="statement not covered" >                ExecutionFailure(transactionId)</span>;
+<span class="cstat-no" title="statement not covered" >                tx.executed = false</span>;
+            }
+        }
+    }
+&nbsp;
+    /// @dev Returns the confirmation status of a transaction.
+    /// @param transactionId Transaction ID.
+    /// @return Confirmation status.
+    function isConfirmed(uint transactionId)
+        public
+        constant
+        returns (bool)
+    {
+        uint count = 0;
+        for (uint i=0; i&lt;owners.length; i++) {
+            if (confirmations[transactionId][owners[i]])
+                count += 1;
+            if (count == required)
+                return true;
+        }
+    }
+&nbsp;
+    /*
+     * Internal functions
+     */
+    /// @dev Adds a new transaction to the transaction mapping, if transaction does not exist yet.
+    /// @param destination Transaction target address.
+    /// @param value Transaction ether value.
+    /// @param data Transaction data payload.
+    /// @return Returns transaction ID.
+    function addTransaction(address destination, uint value, bytes data)
+        internal
+        notNull(destination)
+        returns (uint transactionId)
+    {
+        transactionId = transactionCount;
+        transactions[transactionId] = Transaction({
+            destination: destination,
+            value: value,
+            data: data,
+            executed: false
+        });
+        transactionCount += 1;
+        Submission(transactionId);
+    }
+&nbsp;
+    /*
+     * Web3 call functions
+     */
+    /// @dev Returns number of confirmations of a transaction.
+    /// @param transactionId Transaction ID.
+    /// @return Number of confirmations.
+<span class="fstat-no" title="function not covered" >    function getConfirmationCount(uint transactionId)</span>
+        public
+        constant
+        returns (uint count)
+    {
+<span class="cstat-no" title="statement not covered" >        for (uint i=0; i&lt;owners.length; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (confirmations[transactionId][owners[i]])</span>
+<span class="cstat-no" title="statement not covered" >                count += 1</span>;
+    }
+&nbsp;
+    /// @dev Returns total number of transactions after filers are applied.
+    /// @param pending Include pending transactions.
+    /// @param executed Include executed transactions.
+    /// @return Total number of transactions after filters are applied.
+<span class="fstat-no" title="function not covered" >    function getTransactionCount(bool pending, bool executed)</span>
+        public
+        constant
+        returns (uint count)
+    {
+<span class="cstat-no" title="statement not covered" >        for (uint i=0; i&lt;transactionCount; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (   pending &amp;&amp; !transactions[i].executed</span>
+                || executed &amp;&amp; transactions[i].executed)
+<span class="cstat-no" title="statement not covered" >                count += 1</span>;
+    }
+&nbsp;
+    /// @dev Returns list of owners.
+    /// @return List of owner addresses.
+<span class="fstat-no" title="function not covered" >    function getOwners()</span>
+        public
+        constant
+        returns (address[])
+    {
+<span class="cstat-no" title="statement not covered" >        return owners;</span>
+    }
+&nbsp;
+    /// @dev Returns array with owner addresses, which confirmed transaction.
+    /// @param transactionId Transaction ID.
+    /// @return Returns array of owner addresses.
+<span class="fstat-no" title="function not covered" >    function getConfirmations(uint transactionId)</span>
+        public
+        constant
+        returns (address[] _confirmations)
+    {
+<span class="cstat-no" title="statement not covered" >        address[] memory confirmationsTemp = new address[](owners.length)</span>;
+<span class="cstat-no" title="statement not covered" >        uint count = 0</span>;
+        uint i;
+<span class="cstat-no" title="statement not covered" >        for (i=0; i&lt;owners.length; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (confirmations[transactionId][owners[i]]) {</span>
+<span class="cstat-no" title="statement not covered" >                confirmationsTemp[count] = owners[i]</span>;
+<span class="cstat-no" title="statement not covered" >                count += 1</span>;
+            }
+<span class="cstat-no" title="statement not covered" >        _confirmations = new address[](count)</span>;
+<span class="cstat-no" title="statement not covered" >        for (i=0; i&lt;count; i++)</span>
+<span class="cstat-no" title="statement not covered" >            _confirmations[i] = confirmationsTemp[i]</span>;
+    }
+&nbsp;
+    /// @dev Returns list of transaction IDs in defined range.
+    /// @param from Index start position of transaction array.
+    /// @param to Index end position of transaction array.
+    /// @param pending Include pending transactions.
+    /// @param executed Include executed transactions.
+    /// @return Returns array of transaction IDs.
+<span class="fstat-no" title="function not covered" >    function getTransactionIds(uint from, uint to, bool pending, bool executed)</span>
+        public
+        constant
+        returns (uint[] _transactionIds)
+    {
+<span class="cstat-no" title="statement not covered" >        uint[] memory transactionIdsTemp = new uint[](transactionCount)</span>;
+<span class="cstat-no" title="statement not covered" >        uint count = 0</span>;
+        uint i;
+<span class="cstat-no" title="statement not covered" >        for (i=0; i&lt;transactionCount; i++)</span>
+<span class="cstat-no" title="statement not covered" >            if (   pending &amp;&amp; !transactions[i].executed</span>
+                || executed &amp;&amp; transactions[i].executed)
+            {
+<span class="cstat-no" title="statement not covered" >                transactionIdsTemp[count] = i</span>;
+<span class="cstat-no" title="statement not covered" >                count += 1</span>;
+            }
+<span class="cstat-no" title="statement not covered" >        _transactionIds = new uint[](to - from)</span>;
+<span class="cstat-no" title="statement not covered" >        for (i=from; i&lt;to; i++)</span>
+<span class="cstat-no" title="statement not covered" >            _transactionIds[i - from] = transactionIdsTemp[i]</span>;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 04 2017 08:11:35 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
