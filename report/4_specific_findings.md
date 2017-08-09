@@ -272,8 +272,11 @@ For storage of ETH, we recommend the following explicit process for using the Gn
 
 1. Copy verbatim https://etherscan.io/address/0x851b7f3ab81bd8df354f0d7640efcd7288553419#code (`Gnosis-AuctionWallet`)
 2. Compile it with the Solidity compiler version listed, **v0.4.10+commit.f0d539ae**, with the **optimizer disabled**.
+3. Deploy the compiled code
+4. Verify the contract https://etherscan.io/verifyContract
+5. Ensure that https://etherscan.io/address/0x851b7f3ab81bd8df354f0d7640efcd7288553419#code `Contract Creation Code` matches that of your contract.
 
-Other ways of using the Gnosis MultiSigWallet are not recommended because there are many versions (and branches) of the source code, and compiler versions to use, and they are all distinct: the code that ends up on the blockchain will be different.  The recommended process is what is currently holding 200,000+ ETH.
+Other ways of using the Gnosis MultiSigWallet are not recommended because there are many versions (and branches) of the source code, and compiler versions to use, and they are all distinct: the code that ends up on the blockchain will be different.  The recommended process will lead to the same blois what is currently holding 200,000+ ETH.
 
 `MultiSigWalletWithTimeLockExceptRemoveAuthorizedAddress`
 
