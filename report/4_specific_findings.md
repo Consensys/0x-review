@@ -264,7 +264,9 @@ Fixed in [pull/90](https://github.com/0xProject/contracts/pull/90/commits/9c0204
 
 
 
-### MultiSigWallet implementation
+### Holding large amounts of ETH with MultiSigWallet
+
+It is critical to keep separate the concerns of holding large amouns of ETH, against governance plans.  Multisig contracts used for the latter should have no effect on how the ETH holding wallet should be deployed.
 
 **Recommendation**
 
@@ -276,13 +278,13 @@ For storage of ETH, we recommend the following explicit process for using the Gn
 4. Verify the contract https://etherscan.io/verifyContract
 5. Ensure that https://etherscan.io/address/0x851b7f3ab81bd8df354f0d7640efcd7288553419#code `Contract Creation Code` matches that of your contract.
 
-Other ways of using the Gnosis MultiSigWallet are not recommended because there are many versions (and branches) of the source code, and compiler versions to use, and they are all distinct: the code that ends up on the blockchain will be different.  The recommended process will lead to the same blois what is currently holding 200,000+ ETH.
+Other ways of using the Gnosis MultiSigWallet are not recommended because there are many versions (and branches) of the source code, and compiler versions to use, and they are all distinct: the code that ends up on the blockchain will be different.  Accurately performing the recommended process will lead to the same blockchain code (except for constructor parameters) that is currently holding 200,000+ ETH.
 
-`MultiSigWalletWithTimeLockExceptRemoveAuthorizedAddress`
+We recommend a separate and documented deployment process for `MultiSigWalletWithTimeLockExceptRemoveAuthorizedAddress`, which should have no effect on how the ETH holding wallet should be deployed.
 
 **Resolution**
 
-Unknown since there is no documentation about the deployment process.
+Unknown: there is no documentation about the deployment process.
 <br/><br/><br/>
 
 
