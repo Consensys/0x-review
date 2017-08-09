@@ -268,10 +268,18 @@ Fixed in [pull/90](https://github.com/0xProject/contracts/pull/90/commits/9c0204
 
 **Recommendation**
 
-TODO This recommendation for using the multisigwallet: go to https://etherscan.io/address/0x851b7f3ab81bd8df354f0d7640efcd7288553419#code
-and compile it  with the version listed (v0.4.10+commit.f0d539ae)  with optimizer disabled
+For storage of ETH, we recommend the following explicit process for using the Gnosis MultiSigWallet implementation:
+
+1. Copy verbatim https://etherscan.io/address/0x851b7f3ab81bd8df354f0d7640efcd7288553419#code
+2. Compile it with the Solidity compiler version listed, **v0.4.10+commit.f0d539ae**, with the **optimizer disabled**.
+
 <br/><br/><br/>
 
+`MultiSigWalletWithTimeLockExceptRemoveAuthorizedAddress`
+
+**Resolution**
+
+Unknown since there is no documentation about the deployment process.
 
 
 ### EtherToken implementation
