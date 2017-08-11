@@ -28,7 +28,7 @@ Revisions made after the initial review, can be found in the `frozenUpdated` bra
 0x provided ConsenSys Diligence with the following documentation:
 
 * The [0x Project Whitepaper](https://0xproject.com/pdfs/0x_white_paper.pdf)
-* The [README](https://github.com/0xPro ject/contracts/blob/master/README.md) file for the [0xProject/contracts](https://github.com/0xProject/contracts/tree/frozen) repository.
+* The [README](https://github.com/0xProject/contracts/blob/master/README.md) file for the [0xProject/contracts](https://github.com/0xProject/contracts/tree/frozen) repository.
 
 ### Dynamic tests
 

@@ -1,9 +1,5 @@
 # 4 - Specific Findings
 
-<!-- This includes most items that can be discussed in one or more specific locations in the code base. When there is a single file or location, it should be called out, when there are multiple similar issues, they can be grouped and listed together. -->
-
-<!-- TODO: move items to proper severity level -->
-
 ## 4.1 Critical
 
 ###  `Exchange::isRoundingError()` does not return true for errors > 0.1% [[issues/98]](https://github.com/0xProject/contracts/issues/98)
@@ -289,13 +285,14 @@ Unknown: there is no documentation about the deployment process.
 
 
 
-### EtherToken implementation
+### `EtherToken` implementation
+
+The [`EtherToken`](https://github.com/0xProject/contracts/blob/frozenUpdated/contracts/tokens/EtherToken.sol) contract is an ERC20 token which allows users to deposit ETH, allowing it to be transferred using the same interface as similar tokens. It is taken from the Gnosis' implementation, which has been reviewed, but has not yet held significant value on chain.
 
 **Recommendation**
 
-TODO go to
-https://etherscan.io/address/0xD76b5c2A23ef78368d8E34288B5b65D616B746aE#code
-and compile it the version listed (v0.4.11+commit.68ef5810)  with optimizer enabled.  It would be safer to avoid the optimizer, but the optimzer was used for the [audited](https://medium.com/@yudilevi/bancor-contracts-audited-and-deployed-54157fcc0a61) contract that's currently holding 19,000+ ETH.
+We can generally consider contracts which have been reviewed, and held significant value over a period of time, to be secure. An option for the 0x team to consider, is to use the `EtherToken` implementation, at https://etherscan.io/address/0xD76b5c2A23ef78368d8E34288B5b65D616B746aE#code
+and compile it the version listed (v0.4.11+commit.68ef5810) with the optimizer enabled. It is generally considered safer to avoid the optimizer, but the optimizer was used for the [audited](https://medium.com/@yudilevi/bancor-contracts-audited-and-deployed-54157fcc0a61) contract which is currently holding 19,000+ ETH.
 <br/><br/><br/>
 
 
