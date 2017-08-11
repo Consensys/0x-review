@@ -32,7 +32,7 @@ Revisions made after the initial review, can be found in the `frozenUpdated` bra
 
 ### Dynamic tests
 
-The pre-existing tests for [0xProject/contracts](https://github.com/0xProject/contracts/tree/frozen) repository were executed using the truffle framework, run against contracts deployed on a local instance of testrpc.
+The pre-existing tests for [0xProject/contracts](https://github.com/0xProject/contracts/tree/888d5a02573572240f4c55e03238be603c13c469) repository were executed using the truffle framework, run against contracts deployed on a local instance of testrpc.
 
 In order for the tests to succeed, the module `ethereumjs-testrpc` had to be uninstalled and reinstalled specifying version `3.0.2`.
 
