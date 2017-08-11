@@ -94,6 +94,12 @@ which incorrectly assumed that if the `order.makerTokenAmount` is greater than 1
 
 
 
+### Paying less fees by taking advantage of rounding errors
+
+Another concern consequentially derived from rounding error is a strategy takers may take advantage of to minimize the transaction fees he/she pays. Specifically paidTakerFee is calculated using getPartialAmount function which truncates the decimal. First of all, `fillOrder()` doesn't check the error percentage to make sure it was below 0.1%. Secondly, even if it does, takers could still try to construct his order into smaller chunks to "enjoy a 0.1% discount" in every chunk. Thirdly, since relayer will most likely pick orders with high transaction fees, makers could claim to pay a slightly higher fee in the order while in fact they're not, to get a prioritized inclusion onto the order book.
+<br/><br/><br/>
+
+
 ### Unfillable Orders - DRAFT
 
 Rounding errors cause unfillable orders, which arise when all potential fills result in too high of a rounding error, so the order is essentially bricked. An example of such an order is outlined below:
