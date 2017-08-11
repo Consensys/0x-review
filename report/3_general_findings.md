@@ -171,6 +171,19 @@ TokenSale.sol also uses `ecrecover`, but it is only active for the duration of t
 
 
 
+### Losses related to token base units
+
+It is not mentioned in the Solidity code or white paper that token denominations are all expressed in the smallest possible denominations. This should be explicit as it can result in orders being rejected from relayers' order books due to too low of fees, or users accidentally placing, filling, or cancelling smaller amounts of an order than anticipated. 
+
+It is worth noting that 0x.js provides thorough documentation on token base units, but we believe this same level of documentation should be available to those interfacing directly with the smart contracts.
+
+**Recommendation**
+
+Include more documentation on token denominations in the Solidity code and in the white paper.
+<br/><br/><br/>
+
+
+
 ### Keep test contracts separate
 
 It is a common (and good) practice to create contracts external to the contract system for testing purposes. However, these contracts should be kept in a separate directory for clarity.
