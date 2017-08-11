@@ -168,6 +168,16 @@ Fixed. Test contracts were moved to `contracts/test` in [[pull/133]](https://git
 
 <br/><br/><br/>
 
+
+
+### Avoid the Solidity optimizer
+
+It was discussed with the 0x team, who were receptive to the recommendation that contracts should be compiled without the Solidity optimizer.  This reduces risks of unknown unknowns that can be introduced by the Solidity optimizer.
+
+<br/><br/><br/>
+
+
+
 ## 3.4 Minor
 
 ### Negative maker fees are not possible
