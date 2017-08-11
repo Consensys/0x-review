@@ -31,7 +31,7 @@ Another existing mitigation is the use of `require` checks on all token transfer
 
 
 
-### Front running - DRAFT
+### Front running
 
 Miners have ultimate control over transaction ordering and inclusion of transactions on the Ethereum Blockchain. This means that miners are ultimately able to decide which transactions are filled or canceled. Given this inherent power of miners it opens up a possible form of market manipulation: front running. Front running is the practice of entering into a trade with knowledge of a transaction that will influence the price of the underlying asset or security.
 
@@ -43,7 +43,7 @@ Additionally, given the nature of blockchains, miners are not the only ones able
 
 **Recommendation**
 
-For users concerned about front running, a mitigation discussed with 0x is to specify a taker for orders.  More specifically, if one trusts that a relayer will not front run, then specifying the relayer as a taker will not make it possible for such orders to be front runned by other takers.
+For users concerned about front running, a mitigation discussed with 0x is to specify a taker for orders.  More specifically, if one trusts that a relayer will not front run, then specifying the relayer as a taker will not make it possible for such orders to be front runned by other takers.  However, this mitigation does centralize orders towards relayers.
 
 <br/><br/><br/>
 
