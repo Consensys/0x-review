@@ -102,11 +102,18 @@ Another concern consequentially derived from rounding error is a strategy takers
 <br/><br/><br/>
 
 
-### Unfillable Orders - DRAFT
+### Unfillable Orders
 
 Rounding errors cause unfillable orders, which arise when all potential fills result in too high of a rounding error, so the order is essentially bricked. An example of such an order is outlined below:
 
 Alice creates an order of 1001 token A for 3 token B. Bob then fills this order with fillTakerTokenAmount = 2. This order only has a .05% error, so the order goes through without any problems. However, now if any other taker tries to fill the remaining 1 token B `isRoundingError` will always return true as it has a .19% error. Now, this order is in a perpetual limbo and will waste potential takers' gas until Alice cancels the order.
+
+[[pull/146]](https://github.com/0xProject/contracts/pull/146) is a test case demonstrating this issue.
+
+**Recommendation**
+
+More test cases and further quantitative analysis of how frequent unfillable orders can occur.  An ideal would be a mathematical proof of some kind to quantify the issue: for example a rounding error of X% can cause at most Y% unfillable orders.
+
 <br/><br/><br/>
 
 
