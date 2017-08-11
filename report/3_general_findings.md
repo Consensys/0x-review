@@ -58,7 +58,7 @@ The primary documentation we received was the white paper which did not cover ma
 
 Another example is the [Token Distribution contract](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/TokenDistributionWithRegistry.sol). We have written up some descriptions in the Overview and Appendix to provide readers with more context.
 
-There was no documentation about the deployment or rollout process.  The first rule for a [responsible token sale](https://medium.com/@matthewdif/towards-responsible-token-sales-icos-291e69cc9ccf) is **"Under no circumstance should the money raised be released all at once to the development team"**; there is no documentation how this will be achieved.  The [`Major` issue of how large amounts of ETH will be held](../report/4_specific_findings.md#holding-large-amounts-of-eth-with-multisigwallet) is also unclear.
+There was no documentation about the deployment or rollout process.  A good guideline for a [responsible token sale](https://medium.com/@matthewdif/towards-responsible-token-sales-icos-291e69cc9ccf) is that **"Under no circumstance should the money raised be released all at once to the development team"**; there is no documentation how this will be achieved.  The [`Major` issue of how large amounts of ETH will be held](../report/4_specific_findings.md#holding-large-amounts-of-eth-with-multisigwallet) is also unclear.
 
 <br/><br/><br/>
 

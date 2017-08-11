@@ -5,7 +5,7 @@ ConsenSys Diligence (“CD”) typically receives compensation from one or more 
 PURPOSE OF REPORTS
 The Reports and the analysis described therein are created for the Clients. The scope of our review is limited to a review of Solidity code and only the solidity code we note as being within the scope of our review within this report. The Solidity language itself remains under development and is subject to unknown risks and flaws. The review does not extend to the EVM layer, or any other areas beyond Solidity that could present security risks. Cryptographic tokens are emergent technologies and carry with them high levels of technical risk and uncertainty.
 
-CD makes the Reports available to parties other than the Clients (i.e., “third parties”)--on its github account (https://github.com/ConsenSys)--for informational purposes only. CD hopes that by making these analyses publicly available, it can help the blockchain ecosystem develop technical best practices in this rapidly evolving area of innovation.
+CD makes the Reports available to parties other than the Clients (i.e., “third parties”) -- on its github account (https://github.com/ConsenSys) -- for informational purposes only. CD hopes that by making these analyses publicly available, it can help the blockchain ecosystem develop technical best practices in this rapidly evolving area of innovation.
 
 The Reports are not an endorsement or indictment of any particular project or team, and the Reports do not guarantee the security of any particular project. This Report does not consider, and should not be interpreted as considering or having any bearing on, the potential economics of a token, token sale or any other product, service or other asset.
 
