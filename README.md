@@ -10,3 +10,4 @@ Disclaimer: This entire report is a DRAFT. As much as possible, we've clearly in
 * [4. Specific Findings](./report/4_specific_findings.md)
 * [5. Test Coverage Analysis](./report/5_coverage.md)
 * [6. Appendix](./report/6_appendix.md)
+* [7. Disclosure](./report/7_disclosure.md)
