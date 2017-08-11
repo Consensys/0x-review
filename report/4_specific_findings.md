@@ -530,7 +530,7 @@ The `TokenRegistry.sol` contract uses a `bytes32` value to store IPFS hashes ([c
 
 IPFS uses a [multihash](https://github.com/multiformats/multihash) and the TokenRegistry might also be assuming a convention that the first 2 bytes of the IPFS hash, which are not stored on-chain are 0x1220.
 
-**Recommendations**
+**Recommendation**
 
 Assumptions should be documented. Consider future-proofing by using the `bytes` type rather than `bytes32`.
 
@@ -603,7 +603,7 @@ Fixed in [pull/120](https://github.com/0xProject/contracts/pull/120) The develop
 
 The concept of a Proxy contracts is often associated with a general purpose identity contract, as in [Uport](https://github.com/uport-project/uport-identity/blob/develop/contracts/Proxy.sol) or as proposed in [ERC 121](https://github.com/ethereum/EIPs/issues/121). `TokenProxy.sol` (or something else) may be a better name because the [proxy function here isn't generic but for token transferFrom](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/Proxy.sol#L101)
 
-**Recommendations**
+**Recommendation**
 
 Rename [`Proxy.sol`](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/Proxy.sol
 ) to `TokenProxy.sol`, or another more precise name.
@@ -637,7 +637,7 @@ These return booleans are used in functions made for heavy and repeated use whic
 
 Since these return values cannot be used by web3.js and calling it from other contracts will result in the same outcome *with or without* that statement (since they would `throw` all the same even if not returning anything) our recommendation would be to strip these out of the final codebase.
 
-**Recommendations**
+**Recommendation**
 
 Totally remove the `return` statements and `returns ()` modifiers from the functions
 
