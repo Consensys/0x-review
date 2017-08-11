@@ -31,11 +31,13 @@ Another existing mitigation is the use of `require` checks on all token transfer
 
 
 
-### Front Running - DRAFT
+### Front running - DRAFT
 
 Miners have ultimate control over transaction ordering and inclusion of transactions on the Ethereum Blockchain. This means that miners are ultimately able to decide which transactions are filled or canceled. Given this inherent power of miners it opens up a possible form of market manipulation: front running. Front running is the practice of entering into a trade with knowledge of a transaction that will influence the price of the underlying asset or security.
 
-Although 0x uses an off-chain orderbook it is still susceptible to front running as orders are cleared on the blockchain. For example, in Exchange.sol the function fill is susceptible to front running as a miner can always include their transaction first which results in the taker's fill being rejected or only partially filled. Similarly, when a miner sees a maker call cancel they can just fill the order first. Hence, if a maker accidentally places an unfavorable trade they may not be able to cancel it. The functions fillOrdersUpTo and batchFillOrders help mitigate front running by providing backup orders to fill so the taker is not just left with an error log, but nothing prevents a miner from iterating through the orders and filling them all or profiting from slippage.  For instance, a miner might see a taker call fillOrdersUpTo with a large order and then call fill on the lowest priced order and then profit on the additional slippage from the taker's order.
+Although 0x uses an off-chain orderbook it is still susceptible to front running as orders are cleared on the blockchain. For example, in Exchange.sol the function fill is susceptible to front running as a miner can always include their transaction first which results in the taker's fill being rejected or only partially filled. Similarly, when a miner sees a maker call cancel they can just fill the order first. Hence, if a maker accidentally places an unfavorable trade they may not be able to cancel it.
+
+`fillOrdersUpTo()` and `batchFillOrders()` help mitigate front running by providing backup orders to fill so the taker is not just left with an error log, but nothing prevents a miner from iterating through the orders and filling them all or profiting from slippage.  For instance, a miner might see a taker call `fillOrdersUpTo()` with a large order and then call fill on the lowest priced order and then profit on the additional slippage from the taker's order.
 
 Additionally, given the nature of blockchains, miners are not the only ones able to front run. As an example, a taker could see another taker broadcast a fill order. The malicious taker could instantly broadcast a competing fill order with a higher gas price to increase the probability of their order being filled first.
 
