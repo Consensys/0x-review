@@ -60,3 +60,5 @@ A full review of the contract source code.  The primary areas of focus include:
 * Sections of code with high complexity
 * Improving scalability
 * Quantity and quality of test coverage
+
+The review does not cover aspects of the 0x token sale such as the registration of participants (such details were also only made known after the final system reviewed).
