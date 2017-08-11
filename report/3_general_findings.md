@@ -41,9 +41,9 @@ Although 0x uses an off-chain orderbook it is still susceptible to front running
 
 Additionally, given the nature of blockchains, miners are not the only ones able to front run. As an example, a taker could see another taker broadcast a fill order. The malicious taker could instantly broadcast a competing fill order with a higher gas price to increase the probability of their order being filled first.
 
-**Resolution**
+**Recommendation**
 
-Front running on the blockchain is a difficult problem. Based on our discussions with 0x, it is clear that they have put considerable thought into mechanisms for mitigating and reducing the impact of front running.
+For users concerned about front running, a mitigation discussed with 0x is to specify a taker for orders.  More specifically, if one trusts that a relayer will not front run, then specifying the relayer as a taker will not make it possible for such orders to be front runned by other takers.
 
 <br/><br/><br/>
 
