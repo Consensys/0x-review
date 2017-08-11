@@ -114,6 +114,8 @@ Alice creates an order of 1001 token A for 3 token B. Bob then fills this order 
 
 More test cases and further quantitative analysis of how frequent unfillable orders can occur.  An ideal would be a mathematical proof of some kind to quantify the issue: for example a rounding error of X% can cause at most Y% unfillable orders.
 
+Develop a tool for takers and relayers that checks for unfillable orders. This will minimize takers wasting gas on unfillable orders.
+
 <br/><br/><br/>
 
 
