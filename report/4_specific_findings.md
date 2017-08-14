@@ -305,9 +305,7 @@ This point is primarily informational, and is an option for consideration. It sh
 
 In the _TokenRegistry_ contract neither the `addToken()`, `setTokenName()` or the `setTokenSymbol()` check for overwrites in both the `tokenByName` or `tokenBySymbol` mappings.
 
-Although the contract in question is supposed to be controlled only by the DAO/MultiSig, as per the specs, this lack of checks could result in some major confusion in the use of the 0x UI.
-
-Not to mention that in the event of a flaw or compromised future DAO it could lead to severe social engineering attacks.
+Although the contract in question is supposed to be controlled only by the DAO/MultiSig (as per discussion with 0x) this lack of checks could result in some major confusion in the use of the 0x UI.  Not to mention that in the event of a flaw or compromised future DAO it could lead to severe social engineering attacks.
 
 **Recommendation**
 
