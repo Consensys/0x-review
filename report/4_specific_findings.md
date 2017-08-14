@@ -289,17 +289,17 @@ Unknown: there is no documentation about the deployment process.
 
 ### `EtherToken` implementation and security
 
-The [`EtherToken`](https://github.com/0xProject/contracts/blob/df7fe499c543f5d2c83366e907c3a1cc8c4243a8/contracts/tokens/EtherToken.sol) contract is an ERC20 token which allows users to deposit ETH, allowing it to be transferred using the same interface as similar tokens. It is taken from the Gnosis' implementation, which has been reviewed, but has not yet held significant value on chain.
+The [`EtherToken`](https://github.com/0xProject/contracts/blob/df7fe499c543f5d2c83366e907c3a1cc8c4243a8/contracts/tokens/EtherToken.sol) contract is an ERC20 token which allows users to deposit ETH, allowing it to be transferred using the same interface as similar tokens. We assume it is taken from some Gnosis implementation.
 
-We can consider contracts which have been both reviewed, AND held significant value over a period of time, to be quite secure. In this case, an option for the 0x team to consider, is to use the `EtherToken` implementation, at https://etherscan.io/address/0xD76b5c2A23ef78368d8E34288B5b65D616B746aE#code and compile it using the version listed (v0.4.11+commit.68ef5810) with the optimizer enabled. Generally it is considered safer to avoid the optimizer, but the optimizer was used for the [reviewed](https://medium.com/@yudilevi/bancor-contracts-audited-and-deployed-54157fcc0a61) contract which is currently holding 19,000+ ETH. The objective is to deploy bytecode identical to the other contract.
+We can consider contracts which have been both audited, AND held significant value over a period of time, to be safer. In this case, an option for the 0x team to consider, is to use the `EtherToken` implementation, at https://etherscan.io/address/0xD76b5c2A23ef78368d8E34288B5b65D616B746aE#code and compile it using the version listed (v0.4.11+commit.68ef5810) with the optimizer enabled. Generally it is considered safer to avoid the optimizer, but the optimizer was used for the [audited](https://medium.com/@yudilevi/bancor-contracts-audited-and-deployed-54157fcc0a61) contract which is currently holding 19,000+ ETH. The objective is to deploy bytecode identical to the contract that has been audited and has held large sums of ETH for some time.
 
 **Recommendation**
 
-This point is primarily informational, and present an option for consideration. It should also be noted that the above contract has an extended ABI, which allows for an `owner` to withdraw generic ERC20 tokens which have been deposited erroneously.
-
-As a further informational note for the reader, a different approach to addressing this issue is currently being discussed in [ERC223](https://github.com/ethereum/EIPs/issues/223).
+This point is primarily informational, and is an option for consideration. It should also be noted that the above contract has an extended ABI, which allows for an `owner` to withdraw any ERC20 tokens which have been deposited erroneously.  (As a further informational note for the reader, a different approach to addressing accidental token deposits is currently being discussed in [ERC223](https://github.com/ethereum/EIPs/issues/223).)
 
 <br/><br/><br/>
+
+
 
 ### Token metadata can be silently overwritten in _TokenRegistry_ [[issues/115]](https://github.com/0xProject/contracts/issues/115)
 
