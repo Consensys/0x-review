@@ -22,10 +22,10 @@ The `Exchange` contract is the primary interface for users to trade through the 
 The basic flow for completing an order is:
 
 * A `maker` signs a message creating an order according to the protocol specification. This message specifies the parameters of the order, including the token pair (`makerToken` and `takerToken`) and the corresponding amounts to be traded.   Optionally, a `taker` address may be specified, which will ensure that only that address can fill the order.
-* This order and signature can then be communicated off chain, by any means. The expectations is that 'Relayers' will maintain an order book with a list of orders. In order to be compensated for their services, Relayers may choose to list only orders which specify their address as a `feeRecipient`, along with a `takerFee` and/or `makerFee`, which must be paid in the 0x protocol token (**ZRX**).  Fees can only be paid in ZRX and this is a key element in the utility of the ZRX token.
+* This order and signature can then be communicated off-chain, by any means. The expectations is that 'Relayers' will maintain an order book with a list of orders. In order to be compensated for their services, Relayers may choose to list only orders which specify their address as a `feeRecipient`, along with a `takerFee` and/or `makerFee`, which must be paid in the 0x protocol token (**ZRX**).  Fees can only be paid in ZRX and this is a key element in the utility of the ZRX token.
 * _NOTE: Everything up until this point is done off-chain._
 * A `taker` who wishes to fill the order may then submit the parameters of the order and its signature to the `Exchange` contract. If both parties have sufficient transferable balances of their respective tokens (and `ZRX`), the `Exchange` will complete the transfer. Otherwise the call will error.
-* Several different functions are available, which provide a `taker` with various options for filling one or more maker orders: `fillOrder()`, `fillOrKillOrder()`, `batchFillOrders()`, `batchFillOrKillOrders()`, `fillOrdersUpTo()`. It is important to note that the `taker` bears the full gas cost of execution, and risks losing their gas payment if a transaction is an error.
+* Several different functions are available, which provide a `taker` with various options for filling one or more maker orders: `fillOrder()`, `fillOrKillOrder()`, `batchFillOrders()`, `batchFillOrKillOrders()`, `fillOrdersUpTo()`. It is important to note that the `taker` bears the full gas cost of execution, and loses their gas payment if a transaction is an error.
 * `makers` may also cancel previously signed orders by calling `cancelOrder()`, or `batchCancelOrders()`.
 * If an order has an amount either `filled`, or `cancelled`, the amount is recorded in the corresponding `mapping (bytes32 => uint)`. This is essential for preventing a maker's order from being filled more than once, or filled after cancellation.
 
@@ -43,9 +43,9 @@ Thus the `Proxy` is the least changeable component in the system, and is necessa
 
 ## `TokenRegistry`
 
-The `TokenRegistry` contract contains a curated list of contract addresses for popular, existing ERC-20 tokens, as well as related metadata including the name, ticker symbol, and a storage hash for the logo on both Swarm and IPFS. This token metadata is used to populate the UI developed by the 0xProject team.
+The `TokenRegistry` contract contains a curated list of contract addresses for popular, existing ERC-20 tokens, as well as related metadata including the name, ticker symbol, and hashes for querying Swarm and IPFS. This token metadata is used to populate the UI developed by the 0xProject team.
 
-It owned and controlled by single address (see Governance below), which can add or remove token addresses from the listing.
+It is owned and controlled by a single address (see Governance below), which can add or remove token addresses from the listing.
 
 The `TokenRegistry` is separate from the core business logic of the protocol, and supports the use of the system's UI designed by the 0xProject team.  The protocol is not limited to tokens listed in the registry, and users are free to specify other tokens for exchange. It is not truly a part of the protocol, but has some curatorial influence on which tokens are likely to be traded most often.
 
