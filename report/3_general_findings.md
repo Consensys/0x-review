@@ -157,11 +157,11 @@ Contracts should be deployed using a specific compiler version and flags that th
 
 Lock the pragmas to a specific version in all contracts that will be deployed.
 
-Prefer a more "mature" version of the compiler than using the latest most recent compiler released: reduces the risk of encountering new compiler bugs.
+Prefer a more "mature" version of the compiler than using the latest most recent compiler released: this reduces the risk of encountering new compiler bugs.
 
 **Resolution** [pull/117](https://github.com/0xProject/contracts/pull/117)
 
-0.4.11 compiler version will be used.  This is a sensible choice as 0.4.11 has been in the wild for a couple of months (as opposed to 0.4.14 that has been out for 2 weeks).
+0.4.11 compiler version will be used.  This is a reasonable choice as 0.4.11 has been in the wild for a couple of months (as opposed to 0.4.14 that has been out for 2 weeks).
 <br/><br/><br/>
 
 
