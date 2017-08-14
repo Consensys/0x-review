@@ -21,14 +21,14 @@ https://github.com/0xProject/contracts/tree/74728c404a1c7e9091074bd88abf454fd374
 
 The code base reviewed was in the [0xProject/contracts](https://github.com/0xProject/contracts/tree/888d5a02573572240f4c55e03238be603c13c469) repository, with commit hash `888d5a02573572240f4c55e03238be603c13c469`.
 
-Revisions made after the initial review, can be found in the `frozenUpdated` branch at commit hash `74728c404a1c7e9091074bd88abf454fd374228a`.
+Revisions made after the initial review, can be found at commit hash [`74728c404a1c7e9091074bd88abf454fd374228a`](https://github.com/0xProject/contracts/tree/74728c404a1c7e9091074bd88abf454fd374228a).
 
 ### Documentation
 
 0x provided ConsenSys Diligence with the following documentation:
 
 * The [0x Project Whitepaper](https://0xproject.com/pdfs/0x_white_paper.pdf)
-* The [README](https://github.com/0xProject/contracts/blob/master/README.md) file for the [0xProject/contracts](https://github.com/0xProject/contracts/tree/frozen) repository.
+* The [README](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/README.md) file for the [0xProject/contracts](https://github.com/0xProject/contracts/tree/frozen) repository.
 
 ### Dynamic tests
 
