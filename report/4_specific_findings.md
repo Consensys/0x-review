@@ -131,6 +131,8 @@ This effectively translates to the [final implementation](https://github.com/0xP
 
 ### `Exchange::isTransferable()` reentrancy risks [[issues/107]](https://github.com/0xProject/contracts/issues/107)
 
+Ref: [Best Practices: Reentrancy](https://github.com/ConsenSys/smart-contract-best-practices#reentrancy)
+
 The [`isTransferable()`](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/Exchange.sol#L528) function, referenced in:
 [contracts/Exchange.sol#L151](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/Exchange.sol#L151)
 is a [dangerous design pattern](https://github.com/ConsenSys/smart-contract-best-practices#reentrancy).
