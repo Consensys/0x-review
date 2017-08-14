@@ -142,6 +142,8 @@ About *claim 1*:
 * The checks made by `isTransferable()` assume the contract's state stays intact throughout multiple calls which is valid by ERC20 specs, but not necessarily in a malicious token.
 * If the token contract is assumed to be benign, then checking the available balance in `isTransferable()` is unnecessary when the same check is already made, with associated gas costs, inside the ERC20 token contract.
 
+Thus, the recommendation is to remove `isTransferable()`.  Note that `isTransferable()` can also be considered as a section of code with high complexity.
+
 About *claim 2*:
 We could not, within the extent of our review, find a reentrancy *bug*, however, best practices and prior lessons dictate that **[accessing/changing state variables *after* an external call](https://github.com/ConsenSys/smart-contract-best-practices#reentrancy)  in a function is dangerous, and should be avoided at all costs**.
 
