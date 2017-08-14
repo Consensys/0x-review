@@ -2,7 +2,7 @@
 
 ## 1.1 Process
 
-Our review was conducted in two distinct phases, which we review to as initial and final reviews. The initial phase looked at the contract system code as it was provided to us by 0x upon commencement. The final review looked at the system code after our recommendations were incorporated. Thus each issue has a note about the **resolution**, and our assessment of it.  (Some fixes were incomplete and other improvements were recommended, so the final review was extended to August 3 as will be described.)
+Our review was conducted in two distinct phases, which we refer to as initial and final reviews. The initial phase looked at the contract system code as it was provided to us by 0x upon commencement. The final review looked at the system code after our recommendations were incorporated. Thus each issue has a note about the **resolution**, and our assessment of it.  (Some fixes were incomplete and other improvements were recommended, so the final review was extended to August 3 as will be described.)
 
 July 3: review begins (with 1 ConsenSys Diligence member and others ramping up each of the following 2 weeks) on
 https://github.com/0xProject/contracts/tree/888d5a02573572240f4c55e03238be603c13c469
@@ -61,4 +61,4 @@ A full review of the contract source code.  The primary areas of focus include:
 * Improving scalability
 * Quantity and quality of test coverage
 
-The review does not cover aspects of the 0x token sale such as the registration of participants (such details were also only made known after the final system reviewed).
+The review does not cover aspects of the 0x token sale such as the registration of participants (such details were also only made known to us after the final system reviewed).
