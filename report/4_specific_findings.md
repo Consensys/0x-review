@@ -333,6 +333,8 @@ Fixed. The `setCapPerAddress()` function was replaced with `getEthCapPerAddress(
 
 ### Enforce invariants with `assert` instead of `safeMath` when appropriate
 
+Ref: [Best Practices: Enforce invariants with `assert()`](https://github.com/ConsenSys/smart-contract-best-practices/blob/master/README.md#enforce-invariants-with-assert)
+
 "safeMath" libraries have helped developers avoid issues with overflows and underflows.  However, there are cases when enforcing invariants with `assert` is preferable to excessive use of "safeMath": enforcing invariants often highlights that an overflow or underflow condition is impossible, thus no need for "safeMath" at all.
 
 *Example*
