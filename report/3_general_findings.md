@@ -99,7 +99,16 @@ which incorrectly assumed that if the `order.makerTokenAmount` is greater than 1
 ### Paying less fees by taking advantage of rounding errors
 
 Another concern consequentially derived from rounding error is a strategy takers may take advantage of to minimize the transaction fees he/she pays. Specifically paidTakerFee is calculated using getPartialAmount function which truncates the decimal. First of all, `fillOrder()` doesn't check the error percentage to make sure it was below 0.1%. Secondly, even if it does, takers could still try to construct his order into smaller chunks to "enjoy a 0.1% discount" in every chunk. Thirdly, since relayer will most likely pick orders with high transaction fees, makers could claim to pay a slightly higher fee in the order while in fact they're not, to get a prioritized inclusion onto the order book.
+
+**Recommendation**
+
+Check for rounding errors in the fees, like [[pull/156]](https://github.com/0xProject/contracts/pull/156), and investigate the impact of such a change (for example how often will fills encounter a rounding error) by running simulations of the exchange.
+
+**Resolution**
+
+None.
 <br/><br/><br/>
+
 
 
 ### Unfillable Orders
@@ -115,6 +124,10 @@ Alice creates an order of 1001 token A for 3 token B. Bob then fills this order 
 More test cases and further quantitative analysis of how frequent unfillable orders can occur.  An ideal would be a mathematical proof of some kind to quantify the issue: for example a rounding error of X% can cause at most Y% unfillable orders.
 
 Develop a tool for takers and relayers that checks for unfillable orders. This will minimize takers wasting gas on unfillable orders.
+
+**Resolution**
+
+None.
 
 <br/><br/><br/>
 
@@ -167,6 +180,10 @@ We do not recommend any permanent code changes as Truffle currently does not sup
 There is no documentation about the deployment process, but it appears that Exchange.sol is [currently deployed](https://github.com/0xProject/contracts/blob/74728c404a1c7e9091074bd88abf454fd374228a/migrations/4_configure_proxy.ts#L23) near the end of the process, so it should be possible to ignore the Exchange.sol contract that is deployed with 0.4.11 by Truffle.  An out-of-band compile with 0.4.14 and deploying Exchange.sol, and then calling `tokenTransferProxy.addAuthorizedAddress` with it, should allow the system to function as intended.  The deployment of TokenSale.sol should also reference the 0.4.14 Exchange.sol.  We recommend these steps be documented.
 
 TokenSale.sol also uses `ecrecover`, but it is only active for the duration of the sale and we think the risks are acceptable for it to remain on 0.4.11.  Exchange.sol and TokenSale.sol are the only two contracts that use `ecrecover`.
+
+**Resolution**
+
+Unknown.
 <br/><br/><br/>
 
 
@@ -180,6 +197,10 @@ It is worth noting that 0x.js provides thorough documentation on token base unit
 **Recommendation**
 
 Include more documentation on token denominations in the Solidity code and in the white paper.
+
+**Resolution**
+
+None.
 <br/><br/><br/>
 
 
