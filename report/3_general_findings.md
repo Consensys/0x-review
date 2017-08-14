@@ -76,7 +76,8 @@ Given the 0x protocol allows for partial fills, rounding errors are extremely pe
   return (target < 10**3 && mulmod(target, numerator, denominator) != 0);
 ```
 
-which incorrectly assumed that if the `order.makerTokenAmount` is greater than 1000 there will never be a rounding error greater than .1%.
+which incorrectly assumed that if the `order.makerTokenAmount` is greater than 1000 there will never be a rounding error. This conflicts with the [comment for the function](https://github.com/0xProject/contracts/blob/888d5a02573572240f4c55e03238be603c13c469/contracts/Exchange.sol#L468) stating:
+`Checks if rounding error > 0.1%.`
 
 **Recommendation**
 
