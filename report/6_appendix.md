@@ -1,6 +1,6 @@
 # Appendix 1 - Audit Participants
 
-Security audit was performed by ConsenSys team members J. Maurelian, Joseph Chow, Gonalo Sa, with support from George Lambeth and Alex Luoyan.
+Security audit was performed by ConsenSys team members J. Maurelian, Joseph Chow, Gonçalo Sá, with support from George Lambeth and Alex Luoyan.
 
 # Appendix 2 - Terminology
 
