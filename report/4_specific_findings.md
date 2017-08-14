@@ -208,7 +208,7 @@ We feel the need to note that the wording "(...) clarity over efficiency (...)" 
 
 ### Proper usage of `require` vs `assert`
 
-Use of the `assert` function should be limited to checking for states and error conditions which should be unreachable if properly designed. The `require` function should be used to validate  inputs, contract state, or return values from calls to external contracts.
+[`assert()` should be used to enforce invariants](#enforce-invariants-with-assert-instead-of-safemath-when-appropriate) and checking for states and error conditions which should be unreachable if code logic is correct. The `require()` function should be used to validate  inputs, contract state, or return values from calls to external contracts.
 
 Another important difference is that `require` compiles to the `REVERT` opcode (`0xfd`), which will refund unused gas after the [Metropolis Release](https://github.com/ethereum/EIPs/pull/206).
 
