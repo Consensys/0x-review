@@ -57,7 +57,6 @@ A full review of the contract source code.  The primary areas of focus include:
 
 * Correctness (does it do what it is supposed to do)
 * Readability (how easily it can be read and understood)
-* Sections of code with high complexity
 * Improving scalability
 * Quantity and quality of test coverage
 
