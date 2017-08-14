@@ -33,6 +33,8 @@ Another existing mitigation is the use of `require` checks on all token transfer
 
 ### Front running
 
+Ref: [Best Practices: Transaction-Ordering Dependence (TOD) / Front Running](https://github.com/ConsenSys/smart-contract-best-practices/blob/master/README.md#transaction-ordering-dependence-tod--front-running)
+
 Miners have ultimate control over transaction ordering and inclusion of transactions on the Ethereum Blockchain. This means that miners are ultimately able to decide which transactions are filled or canceled. Given this inherent power of miners it opens up a possible form of front running. [Front running](http://www.investopedia.com/terms/f/frontrunning.asp) is the practice of stepping in front of orders placed (or about to be placed) by others to gain a price advantage.
 
 Although 0x uses an off-chain orderbook it is still susceptible to front running as orders are cleared on the blockchain. For example, in Exchange.sol the function fill is susceptible to front running as a miner can always include their transaction first which results in the taker's fill being rejected or only partially filled. Similarly, when a miner sees a maker call cancel they can just fill the order first. Hence, if a maker accidentally places an unfavorable trade they may not be able to cancel it.
