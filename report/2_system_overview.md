@@ -1,8 +1,8 @@
 # Overview and description of the contract system
 
-For readers not familiar with the inner working of the 0xProject's contract system, we provide a brief summary which we hope will provide greater context for understanding this report.
+For readers not familiar with the inner workings of the 0xProject's contract system, we provide a brief summary which we hope will provide greater context for understanding this report.
 
-The contract system examined in this review forms the core of the 0x Protocol, for on-chain trading of ERC-20 compatible tokens. The system is deployed as 5 contracts, outlined below.
+The contract system examined in this review forms the core of the 0x protocol, for on-chain trading of ERC-20 compatible tokens. The system is deployed as 5 contracts, outlined below.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -17,12 +17,12 @@ The contract system examined in this review forms the core of the 0x Protocol, f
 
 ## `Exchange`
 
-The `Exchange` contract is the primary interface for users to trade through the 0x protocol, and provides a number of `public` functions which can be used to match or cancel orders.
+The `Exchange` contract is the primary interface for users to trade through the 0x protocol, and provides a number of `public` functions which can be used to fill or cancel orders.
 
 The basic flow for completing an order is:
 
 * A `maker` signs a message creating an order according to the protocol specification. This message specifies the parameters of the order, including the token pair (`makerToken` and `takerToken`) and the corresponding amounts to be traded.   Optionally, a `taker` address may be specified, which will ensure that only that address can fill the order.
-* This order and signature can then be communicated off chain, by any means. The expectations is that 'Relayers' will maintain an order book with a list of orders. In order to be compensated for their services, Relayers may choose to list only orders which specify their address as a `feeRecipient`, along with a `takerFee` and/or `makerFee`, which must be paid in the 0x Protocol token (**ZRX**), this is a key element in the utility of the token.
+* This order and signature can then be communicated off chain, by any means. The expectations is that 'Relayers' will maintain an order book with a list of orders. In order to be compensated for their services, Relayers may choose to list only orders which specify their address as a `feeRecipient`, along with a `takerFee` and/or `makerFee`, which must be paid in the 0x protocol token (**ZRX**).  Fees can only be paid in ZRX and this is a key element in the utility of the ZRX token.
 * _NOTE: Everything up until this point is done off-chain._
 * A `taker` who wishes to fill the order may then submit the parameters of the order and its signature to the `Exchange` contract. If both parties have sufficient transferable balances of their respective tokens (and `ZRX`), the `Exchange` will complete the transfer. Otherwise the call will error.
 * Several different functions are available, which provide a `taker` with various options for filling one or more maker orders: `fillOrder()`, `fillOrKillOrder()`, `batchFillOrders()`, `batchFillOrKillOrders()`, `fillOrdersUpTo()`. It is important to note that the `taker` bears the full gas cost of execution, and risks losing their gas payment if a transaction is an error.
