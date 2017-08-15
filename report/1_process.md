@@ -41,7 +41,7 @@ $ npm uninstall -g ethereumjs-testrpc
 $ npm install -g ethereumjs-testrpc@3.0.2
 ```
 
-The revised code base now includes the script `npm run testrpc`,
+The revised code base now includes the script `npm run testrpc`.
 
 ### Review Goals
 
